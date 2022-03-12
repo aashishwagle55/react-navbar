@@ -1,0 +1,134 @@
+:root {
+  --navbar-color: #1d3557;
+  --navbar-font-color: #f1faee;
+}
+
+.navbar {
+  overflow: hidden;
+  background: var(--navbar-color);
+  height: 6vh;
+  min-height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+}
+
+.logo {
+  position: absolute;
+  left: 10%;
+  color: var(--navbar-font-color);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 12px;
+}
+.logo:hover {
+  cursor: pointer;
+}
+
+.nav-links {
+  position: absolute;
+  right: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  min-height: 40px;
+  font-size: 20px;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-links a {
+  letter-spacing: 1px;
+  margin-left: 15px;
+  padding: 25px;
+  color: var(--navbar-font-color);
+  list-style: none;
+  text-decoration: none;
+}
+
+.nav-links a:hover,
+.burger:hover {
+  background-color: rgba(222, 222, 222, 0.2);
+}
+
+.burger div {
+  background: var(--navbar-font-color);
+  height: 2px;
+  width: 30px;
+  margin: 7px 0px;
+  transition: all 0.5s;
+}
+
+.burger:hover {
+  cursor: pointer;
+}
+
+.burger {
+  position: absolute;
+  right: 10%;
+  padding: 13px 15px;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  .nav-links {
+    position: absolute;
+    right: 0px;
+    height: calc(100vh - 60px);
+    top: 60px;
+    width: 30%;
+    background: var(--navbar-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    transform: translateX(100%);
+    transition: all 0.5s ease-in;
+  }
+  .nav-links li {
+    opacity: 0;
+  }
+  .nav-links a {
+    /* background: red; */
+
+    font-size: 20px;
+  }
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle-burger .line1 {
+  transform: rotate(-45deg) translate(-5px, 7.5px);
+}
+.toggle-burger .line2 {
+  opacity: 0;
+}
+.toggle-burger .line3 {
+  transform: rotate(45deg) translate(-5px, -7.5px);
+}
