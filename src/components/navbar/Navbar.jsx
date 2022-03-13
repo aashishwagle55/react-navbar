@@ -1,22 +1,25 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './navbar.css';
 
 const Navbar = () => {
   return (
-    <Fragment>
+    <div className='nav-container'>
       <nav className='navbar'>
-        <div className='logo' onClick={() => console.log('clicked logo ...')}>
-          <h1>Logo</h1>
+        <div className='logo'>
+          <Link to='/'>
+            <h1>Logo</h1>
+          </Link>
         </div>
         <ul className='nav-links'>
           <li className='nav-item'>
-            <a href='#'>Home</a>
+            <Link to='/'>Home</Link>
           </li>
           <li className='nav-item'>
-            <a href='#'>Videos</a>
+            <Link to='/videos'>Videos</Link>
           </li>
           <li className='nav-item'>
-            <a href='#'>About</a>
+            <Link to='/about'>About</Link>
           </li>
         </ul>
         <div className='burger' onClick={navSlide}>
@@ -25,7 +28,7 @@ const Navbar = () => {
           <div className='line3'></div>
         </div>
       </nav>
-    </Fragment>
+    </div>
   );
 };
 
