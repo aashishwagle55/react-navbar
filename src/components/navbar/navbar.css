@@ -3,55 +3,59 @@
   --navbar-font-color: #f1faee;
 }
 
-.navbar {
-  overflow: hidden;
+.nav-container {
+  position: fixed;
   background: var(--navbar-color);
-  height: 6vh;
   min-height: 60px;
   width: 100%;
+  z-index: 1;
   display: flex;
-  justify-content: space-around;
+}
+
+.navbar {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  z-index: 2;
 }
 
 .logo {
-  position: absolute;
-  left: 10%;
   color: var(--navbar-font-color);
   letter-spacing: 5px;
   text-transform: uppercase;
   font-size: 20px;
-  padding: 12px;
 }
-.logo:hover {
-  cursor: pointer;
+.logo a {
+  text-decoration: none;
+}
+
+.logo h1 {
+  padding: 9px 12px;
+  color: var(--navbar-font-color);
 }
 
 .nav-links {
-  position: absolute;
-  right: 10%;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
-  width: 50%;
-  min-height: 40px;
   font-size: 20px;
 }
 
 .nav-item {
   list-style: none;
+  margin-left: 5%;
 }
 
 .nav-links a {
   letter-spacing: 1px;
-  margin-left: 15px;
-  padding: 25px;
   color: var(--navbar-font-color);
   list-style: none;
   text-decoration: none;
+  padding: 17px;
 }
 
+.logo h1:hover,
 .nav-links a:hover,
 .burger:hover {
   background-color: rgba(222, 222, 222, 0.2);
@@ -71,38 +75,72 @@
 
 .burger {
   position: absolute;
-  right: 10%;
+  right: 5%;
   padding: 13px 15px;
   display: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1720px) {
+  .navbar {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .navbar {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .navbar {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 768px) {
   body {
     overflow-x: hidden;
   }
+  .navbar {
+    width: 100%;
+  }
+  .logo {
+    position: absolute;
+    left: 5%;
+  }
   .nav-links {
     position: absolute;
     right: 0px;
     height: calc(100vh - 60px);
     top: 60px;
+    min-width: min-content;
     width: 30%;
     background: var(--navbar-color);
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;
     transform: translateX(100%);
     transition: all 0.5s ease-in;
   }
   .nav-links li {
+    margin: 2px 0px;
+    min-height: 60px;
+    height: 10vh;
     opacity: 0;
+    width: 100%;
   }
   .nav-links a {
-    font-size: 20px;
+    font-size: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
   .burger {
     display: block;
-    cursor: pointer;
   }
 }
 
